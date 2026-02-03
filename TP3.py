@@ -44,3 +44,47 @@ reproductor.cambiar_fuente(Consola())
 reproductor.reproducir()  # Salida: "Sonando Consola"
 """
 
+
+
+class Types_of_reproductor():
+    def __init__(self,origin_of_sound) -> None:
+        self.origin_of_sound = origin_of_sound
+        pass
+    def name_getter(self):
+        return self.origin_of_sound
+
+class CD(Types_of_reproductor):
+    def __init__(self,origin_of_sound = "CD") -> None:
+        self.origin_of_sound = origin_of_sound
+        pass
+    pass
+
+class MP3(Types_of_reproductor):
+    def __init__(self, origin_of_sound = "MP3") -> None:
+        self.origin_of_sound = origin_of_sound
+        pass
+    pass
+
+class Consola(Types_of_reproductor):
+    def __init__(self, origin_of_sound = "Consola") -> None:
+        self.origin_of_sound = origin_of_sound
+
+class Reproductor():
+    def __init__(self,origin_of_sound_rep = MP3()) -> None:
+        self.origin_of_sound_rep = origin_of_sound_rep
+        pass
+    def reproducir(self):
+        print (f"Sonando {self.origin_of_sound_rep.name_getter()}")
+        return
+    def cambiar_fuente(self,new_origin_of_sound):
+        self.origin_of_sound_rep  = new_origin_of_sound
+        return
+    pass
+
+reproductor = Reproductor()
+
+reproductor.reproducir()
+reproductor.cambiar_fuente(CD())
+reproductor.reproducir()
+reproductor.cambiar_fuente(Consola())
+reproductor.reproducir()
